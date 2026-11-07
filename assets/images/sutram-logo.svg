@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 120" role="img" aria-label="Sutram">
+ <defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#F3D36A"/><stop offset=".55" stop-color="#E6B800"/><stop offset="1" stop-color="#B98118"/></linearGradient><linearGradient id="r" x1="0" x2="1"><stop stop-color="#D52B43"/><stop offset="1" stop-color="#8E0E25"/></linearGradient></defs>
+ <g transform="translate(8 16)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M8 44 C8 8 65 4 78 37 C90 69 49 96 20 77 C-4 61 7 29 34 22 C57 16 76 30 92 49 C111 72 135 79 151 60 C170 37 147 7 120 12 C96 16 88 38 101 54" stroke="url(#g)" stroke-width="12"/>
+  <path d="M8 44 C8 8 65 4 78 37 C90 69 49 96 20 77 C-4 61 7 29 34 22 C57 16 76 30 92 49 C111 72 135 79 151 60 C170 37 147 7 120 12 C96 16 88 38 101 54" stroke="url(#r)" stroke-width="6"/>
+  <path d="M80 10 l9 -10 9 10 -9 10z" fill="url(#g)" stroke="none"/><circle cx="89" cy="-5" r="3" fill="#B5122B" stroke="none"/>
+ </g>
+ <text x="188" y="82" font-family="Margarine, cursive" font-size="64" fill="#B5122B">Sutram</text>
+</svg>
