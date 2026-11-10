@@ -33,5 +33,5 @@ Before launch, replace the editable contact placeholders, approve actual plan pr
 - Pasupu Yellow: `#E6B800`
 - Gandham: `#C49A6C`
 - Gold-Shaded White: `#F8F1DC`
-- Logo: `assets/images/sutram-logo.svg`
-- Favicon: `assets/images/sutram-knot.svg`
+- Logo: `assets/images/sutram-logo.png`
+- Favicon: `assets/images/sutram-logo.png`
