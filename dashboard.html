@@ -64,12 +64,12 @@
         <main class="dash-main">
           <div class="dash-top">
             <div>
-              <span class="eyebrow">Member dashboard preview</span>
-              <h1 style="color: var(--red); font-weight: 400; margin: 4px 0">
+              <span class="eyebrow" id="dashEyebrow">Personalized Overview</span>
+              <h1 id="dashTitle" style="color: var(--red); font-weight: 400; margin: 4px 0">
                 Welcome to Sutram
               </h1>
-              <p style="color: var(--muted); margin: 0">
-                Your private space for thoughtful connections.
+              <p id="dashSubtitle" style="color: var(--muted); margin: 0">
+                A real-time snapshot of your matchmaking progress, curated introductions and profile health.
               </p>
             </div>
             <div class="dash-actions">
@@ -94,188 +94,629 @@
               </button>
             </div>
           </div>
-          <div class="notice">
-            This is a front-end demonstration with sample data. It is not a
-            secure member account. Authentication, private records, messaging
-            and permissions must be implemented on a backend before real members
-            use it.
-          </div>
-          <section id="overview" style="margin: 22px 0">
-            <div class="grid grid-3">
+          <!-- TAB 1: OVERVIEW -->
+          <section id="overview" class="dash-section active" style="margin: 22px 0">
+            <div class="notice" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-top: 0; margin-bottom: 22px">
+              <div>
+                <strong>Demonstration Mode:</strong> This is a front-end demonstration with sample data. It is not a
+                secure member account. Authentication, private records, messaging
+                and permissions must be implemented on a backend before real members
+                use it.
+              </div>
+              <button
+                type="button"
+                onclick="this.closest('.notice').style.display='none'"
+                style="background: none; border: none; font-size: 16px; line-height: 1; cursor: pointer; color: inherit; padding: 0 4px"
+                aria-label="Dismiss notice"
+                title="Dismiss notice"
+              >✕</button>
+            </div>
+
+            <!-- Subsection 1: Activity & Metrics -->
+            <div class="grid grid-4" style="margin-bottom: 22px">
               <article class="card">
-                <p>Profile completeness</p>
-                <div class="metric">65%</div>
+                <p style="margin: 0 0 6px">Profile completeness</p>
+                <div class="metric">85%</div>
                 <div
                   style="
                     height: 7px;
                     background: var(--cream);
                     border-radius: 8px;
+                    margin-top: 6px;
                   "
                 >
                   <div
                     style="
-                      width: 65%;
+                      width: 85%;
                       height: 7px;
                       background: var(--yellow);
                       border-radius: 8px;
                     "
                   ></div>
                 </div>
+                <p style="margin: 8px 0 0; font-size: 13px; color: #2e7d32">
+                  ● Verified member (Bio & ID complete)
+                </p>
               </article>
               <article class="card">
-                <p>Recommended matches</p>
-                <div class="metric">08</div>
-                <p>Sample count only</p>
+                <p style="margin: 0 0 6px">Recommended matches</p>
+                <div class="metric">14</div>
+                <p style="margin: 8px 0 0; font-size: 13px; color: var(--red)">
+                  +3 curated introductions today
+                </p>
               </article>
               <article class="card">
-                <p>Recent visitors</p>
-                <div class="metric">04</div>
-                <p>Sample count only</p>
+                <p style="margin: 0 0 6px">Interests received</p>
+                <div class="metric">06</div>
+                <p style="margin: 8px 0 0; font-size: 13px; color: var(--muted)">
+                  2 awaiting your response
+                </p>
+              </article>
+              <article class="card">
+                <p style="margin: 0 0 6px">Profile visitors</p>
+                <div class="metric">38</div>
+                <p style="margin: 8px 0 0; font-size: 13px; color: var(--muted)">
+                  Trending in Hyderabad & Bengaluru
+                </p>
               </article>
             </div>
-          </section>
-          <section id="recommendations" style="margin: 22px 0">
-            <div
-              style="
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin-bottom: 14px;
-              "
-            >
-              <h3 style="margin: 0; color: var(--red); font-weight: 400">
-                Partner recommendations
-              </h3>
-              <span style="color: var(--muted); font-size: 15px"
-                >Curated for you</span
-              >
+
+            <!-- Subsection 2: Daily Spotlight & Advisor Notes -->
+            <div class="grid grid-2" style="grid-template-columns: 1.25fr 0.75fr; margin-bottom: 22px">
+              <article class="card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px">
+                  <span class="eyebrow">Match of the Day</span>
+                  <span class="tag" style="background: #e8f5e9; color: #2e7d32; font-weight: bold">96% Values Harmony</span>
+                </div>
+                <div style="display: flex; gap: 18px; align-items: center; flex-wrap: wrap">
+                  <img
+                    src="assets/images/g9.jpg"
+                    alt="Ananya Rao"
+                    style="width: 120px; height: 120px; object-fit: cover; border-radius: 18px; box-shadow: var(--shadow)"
+                  />
+                  <div style="flex: 1; min-width: 220px">
+                    <h3 style="margin: 0 0 4px; color: var(--red); font-weight: 400">Ananya Rao, 26</h3>
+                    <p style="margin: 0 0 8px; color: var(--muted); font-size: 15px">
+                      Product Designer · Hyderabad (Telugu / English)
+                    </p>
+                    <p style="margin: 0; font-size: 14px; line-height: 1.5; color: var(--ink)">
+                      Values emotional openness, intellectual curiosity and warm family traditions. Shared love for classical literature and weekend design workshops.
+                    </p>
+                  </div>
+                </div>
+                <div style="margin-top: 14px; display: flex; gap: 10px; flex-wrap: wrap">
+                  <button class="btn btn-primary interest">Express Interest</button>
+                  <button class="btn btn-secondary" onclick="switchDashTab('#recommendations')">
+                    View in Recommendations →
+                  </button>
+                </div>
+              </article>
+              <article class="card">
+                <span class="eyebrow">Match Advisor</span>
+                <h3 style="margin: 6px 0; color: var(--red); font-weight: 400">Priya M.</h3>
+                <p style="color: var(--muted); font-size: 14px; margin: 0 0 12px">
+                  Senior Matrimonial Consultant
+                </p>
+                <p style="font-size: 14px; color: var(--ink); line-height: 1.5; font-style: italic">
+                  “A calm, unhurried conversation often reveals the deepest values. Take time to review the introductions shared with you this week.”
+                </p>
+                <ul class="list" style="margin: 12px 0; font-size: 14px">
+                  <li>Advisor assigned: <strong>Active ✓</strong></li>
+                  <li>Family consultation: <strong>Completed ✓</strong></li>
+                  <li>Next weekly review: <strong>Friday, 4:30 PM</strong></li>
+                </ul>
+                <a class="btn btn-primary" href="contact.html" style="width: 100%">Schedule Advisor Call</a>
+              </article>
             </div>
+
+            <!-- Subsection 3: Verification & Next Steps Hub -->
             <div class="grid grid-3">
-              <article class="card profile-card">
-                <div class="profile-photo">
-                  <img src="assets/images/g9.jpg" alt="Ananya Rao" /><span
-                    class="profile-badge badge-bride"
-                    >Bride</span
-                  >
-                </div>
-                <div class="profile-info">
-                  <h3>Ananya Rao</h3>
-                  <p>26 years · Product Designer<br />Hyderabad</p>
-                  <button class="btn btn-secondary interest">
-                    Express interest
-                  </button>
-                </div>
+              <article class="card">
+                <span class="eyebrow">Trust & Identity</span>
+                <h3 style="margin: 6px 0 10px">Profile Verification</h3>
+                <ul class="list" style="font-size: 15px">
+                  <li>Government ID: <strong style="color: #2e7d32">Authenticated ✓</strong></li>
+                  <li>Contact Verified: <strong style="color: #2e7d32">Phone & Email ✓</strong></li>
+                  <li>Horoscope Chart: <strong style="color: #2e7d32">Uploaded ✓</strong></li>
+                </ul>
+                <span class="tag" style="margin-top: 12px; display: inline-block">Trust Score: 100/100</span>
               </article>
-              <article class="card profile-card">
-                <div class="profile-photo">
-                  <img src="assets/images/m6.jpg" alt="Rahul Verma" /><span
-                    class="profile-badge badge-groom"
-                    >Groom</span
-                  >
-                </div>
-                <div class="profile-info">
-                  <h3>Rahul Verma</h3>
-                  <p>29 years · Cloud Architect<br />Bengaluru</p>
-                  <button class="btn btn-secondary interest">
-                    Express interest
-                  </button>
-                </div>
+              <article class="card">
+                <span class="eyebrow">Next Introduction</span>
+                <h3 style="margin: 6px 0 10px">Guided Family Meeting</h3>
+                <p style="font-size: 15px; color: var(--muted); margin: 0 0 10px">
+                  Video meeting with the Verma family scheduled for <strong>Thursday, Nov 13 at 6:00 PM</strong>.
+                </p>
+                <button class="btn btn-secondary" style="width: 100%; margin-top: auto" onclick="toast('Meeting room link will activate 15 minutes before call.')">
+                  View Meeting Agenda
+                </button>
               </article>
-              <article class="card profile-card">
-                <div class="profile-photo">
-                  <img src="assets/images/g11.jpg" alt="Pooja Sharma" /><span
-                    class="profile-badge badge-bride"
-                    >Bride</span
-                  >
-                </div>
-                <div class="profile-info">
-                  <h3>Pooja Sharma</h3>
-                  <p>27 years · Financial Analyst<br />Mumbai</p>
-                  <button class="btn btn-secondary interest">
-                    Express interest
-                  </button>
-                </div>
+              <article class="card">
+                <span class="eyebrow">Privacy Shield</span>
+                <h3 style="margin: 6px 0 10px">Discretion Controls</h3>
+                <ul class="list" style="font-size: 15px">
+                  <li>Direct Phone & Email: <strong style="color: #2e7d32">Shielded</strong></li>
+                  <li>Portfolio Photos: <strong>Verified only</strong></li>
+                  <li>Stealth Browsing: <strong>Inactive</strong></li>
+                </ul>
+                <button class="btn btn-secondary" style="width: 100%; margin-top: auto" onclick="switchDashTab('#settings')">
+                  Configure Settings →
+                </button>
               </article>
             </div>
           </section>
-          <section id="interests" style="margin: 22px 0">
-            <article class="card">
-              <h3>Interests received & recent activity</h3>
-              <div>
-                <div class="interest-item">
+
+          <!-- TAB 2: PARTNER RECOMMENDATIONS -->
+          <section id="recommendations" class="dash-section" style="margin: 22px 0">
+
+            <!-- Subsection 1: Filter & Discovery Preferences Bar -->
+            <article class="card" style="margin-bottom: 22px">
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px">
+                <div>
+                  <h4 style="margin: 0 0 4px; color: var(--ink); font-weight: 500">Active Match Dimensions</h4>
+                  <p style="margin: 0; color: var(--muted); font-size: 14px">
+                    Showing matches curated according to your documented preferences
+                  </p>
+                </div>
+                <button class="btn btn-ghost" onclick="toast('Search criteria opened for editing.')">
+                  Edit Preferences ⚙
+                </button>
+              </div>
+              <div style="margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap">
+                <span class="tag">Age: 25–31</span>
+                <span class="tag">Locations: Hyderabad · Bengaluru · Mumbai</span>
+                <span class="tag">Education: Masters / Professional</span>
+                <span class="tag">Diet: Vegetarian / Flexible</span>
+                <span class="tag">Community: Open / Values-Centric</span>
+              </div>
+              <div class="filter-pills" style="margin-top: 14px; border-top: 1px solid var(--line); padding-top: 12px">
+                <button class="filter-pill active">All Matches (14)</button>
+                <button class="filter-pill" onclick="toast('Filtered by 90%+ compatibility.')">High Compatibility (90%+)</button>
+                <button class="filter-pill" onclick="toast('Filtered by proximity.')">Near You (Hyderabad)</button>
+                <button class="filter-pill" onclick="toast('Filtered by recently verified profiles.')">Newly Verified</button>
+              </div>
+            </article>
+
+            <!-- Subsection 2: Curated Partner Profiles Grid -->
+            <div style="margin-bottom: 22px">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px">
+                <h3 style="margin: 0; color: var(--red); font-weight: 400">Curated Profiles This Week</h3>
+                <span style="color: var(--muted); font-size: 15px">Handpicked for you</span>
+              </div>
+              <div class="grid grid-3">
+                <article class="card profile-card">
+                  <div class="profile-photo">
+                    <img src="assets/images/g9.jpg" alt="Ananya Rao" />
+                    <span class="profile-badge badge-bride">Bride</span>
+                  </div>
+                  <div class="profile-info">
+                    <span class="tag" style="background: #e8f5e9; color: #2e7d32; font-size: 12px; font-weight: bold; margin-bottom: 6px">
+                      96% Harmony Match
+                    </span>
+                    <h3 style="margin: 4px 0">Ananya Rao</h3>
+                    <p style="margin: 0 0 12px">26 years · Product Designer<br />Hyderabad · Telugu / English</p>
+                    <p style="font-size: 14px; color: var(--muted); margin: 0 0 14px; line-height: 1.45">
+                      Passionate about literature and mindful design. Looking for an authentic connection grounded in mutual respect.
+                    </p>
+                    <button class="btn btn-primary interest" style="width: 100%">Express Interest</button>
+                  </div>
+                </article>
+                <article class="card profile-card">
+                  <div class="profile-photo">
+                    <img src="assets/images/m6.jpg" alt="Rahul Verma" />
+                    <span class="profile-badge badge-groom">Groom</span>
+                  </div>
+                  <div class="profile-info">
+                    <span class="tag" style="background: #e8f5e9; color: #2e7d32; font-size: 12px; font-weight: bold; margin-bottom: 6px">
+                      92% Harmony Match
+                    </span>
+                    <h3 style="margin: 4px 0">Rahul Verma</h3>
+                    <p style="margin: 0 0 12px">29 years · Cloud Architect<br />Bengaluru · Hindi / English</p>
+                    <p style="font-size: 14px; color: var(--muted); margin: 0 0 14px; line-height: 1.45">
+                      Enjoys fitness, mindful living, and mutual career support. Seeks a partner with open dialogue.
+                    </p>
+                    <button class="btn btn-primary interest" style="width: 100%">Express Interest</button>
+                  </div>
+                </article>
+                <article class="card profile-card">
+                  <div class="profile-photo">
+                    <img src="assets/images/g11.jpg" alt="Pooja Sharma" />
+                    <span class="profile-badge badge-bride">Bride</span>
+                  </div>
+                  <div class="profile-info">
+                    <span class="tag" style="background: #e8f5e9; color: #2e7d32; font-size: 12px; font-weight: bold; margin-bottom: 6px">
+                      94% Harmony Match
+                    </span>
+                    <h3 style="margin: 4px 0">Pooja Sharma</h3>
+                    <p style="margin: 0 0 12px">27 years · Financial Analyst<br />Mumbai · Marathi / English</p>
+                    <p style="font-size: 14px; color: var(--muted); margin: 0 0 14px; line-height: 1.45">
+                      Classical music enthusiast, values family warmth, personal growth and shared everyday rhythms.
+                    </p>
+                    <button class="btn btn-primary interest" style="width: 100%">Express Interest</button>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <!-- Subsection 3: Compatibility & Alignment Insights -->
+            <div class="grid grid-2" style="grid-template-columns: 1.2fr 0.8fr">
+              <article class="card">
+                <span class="eyebrow">Harmony Analysis</span>
+                <h3 style="margin: 6px 0 14px">Compatibility Dimensions</h3>
+                <div style="display: grid; gap: 12px">
+                  <div>
+                    <div style="display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 4px">
+                      <span>Family & Cultural Harmony</span>
+                      <strong>98%</strong>
+                    </div>
+                    <div style="height: 6px; background: var(--cream); border-radius: 6px">
+                      <div style="width: 98%; height: 6px; background: var(--red); border-radius: 6px"></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div style="display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 4px">
+                      <span>Life Priorities & Rhythms</span>
+                      <strong>94%</strong>
+                    </div>
+                    <div style="height: 6px; background: var(--cream); border-radius: 6px">
+                      <div style="width: 94%; height: 6px; background: var(--yellow); border-radius: 6px"></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div style="display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 4px">
+                      <span>Astrological (Guna Milan)</span>
+                      <strong>32 / 36 (Auspicious)</strong>
+                    </div>
+                    <div style="height: 6px; background: var(--cream); border-radius: 6px">
+                      <div style="width: 88%; height: 6px; background: #2e7d32; border-radius: 6px"></div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <article class="card">
+                <span class="eyebrow">The Sutram Standard</span>
+                <h3 style="margin: 6px 0 10px">Human Curation</h3>
+                <p style="font-size: 14px; color: var(--muted); line-height: 1.5">
+                  Unlike automated apps, every recommendation on Sutram is verified by an experienced advisor after personal consultation with both families.
+                </p>
+                <a class="btn btn-secondary" href="contact.html" style="width: 100%; margin-top: 14px">
+                  Request Custom Advisor Search
+                </a>
+              </article>
+            </div>
+          </section>
+
+          <!-- TAB 3: INTERESTS RECEIVED & ACTIVITY -->
+          <section id="interests" class="dash-section" style="margin: 22px 0">
+
+            <!-- Subsection 1: Pending Interests Received (Decision Needed) -->
+            <article class="card" style="margin-bottom: 22px">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px">
+                <h3 style="margin: 0; color: var(--red); font-weight: 400">
+                  Pending Interests (2 Awaiting Response)
+                </h3>
+                <span class="tag">Review within 48 hours</span>
+              </div>
+              <div style="display: grid; gap: 16px">
+                <div class="interest-item" style="align-items: flex-start">
                   <img
                     class="interest-avatar"
                     src="assets/images/m7.jpg"
                     alt="Aditya Reddy"
+                    style="width: 64px; height: 64px"
                   />
-                  <div>
-                    <strong>Aditya Reddy</strong> (31, Hyderabad) ·
-                    <span class="tag">Groom</span>
-                    <p
-                      style="
-                        margin: 2px 0;
-                        color: var(--muted);
-                        font-size: 15px;
-                      "
-                    >
-                      Expressed interest in your profile yesterday
+                  <div style="flex: 1">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px">
+                      <div>
+                        <strong>Aditya Reddy</strong> (31, Hyderabad) · <span class="tag">Groom</span>
+                      </div>
+                      <span style="font-size: 13px; color: var(--muted)">Received yesterday</span>
+                    </div>
+                    <p style="margin: 6px 0 10px; color: var(--ink); font-size: 15px; line-height: 1.45; background: var(--bg); padding: 10px 14px; border-radius: 12px; border: 1px solid var(--line)">
+                      “Read through your life priorities and career aspirations; felt we share a very complementary outlook on family and personal growth. Would be glad to connect.”
                     </p>
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap">
+                      <button class="btn btn-primary interest">Accept & Connect</button>
+                      <button class="btn btn-secondary">View Profile</button>
+                      <button class="btn btn-ghost" onclick="toast('Interest politely declined.')">Decline Politely</button>
+                    </div>
                   </div>
                 </div>
-                <div class="interest-item">
+
+                <div class="interest-item" style="align-items: flex-start; border-bottom: 0">
                   <img
                     class="interest-avatar"
                     src="assets/images/g10.jpg"
                     alt="Sneha Kulkarni"
+                    style="width: 64px; height: 64px"
                   />
-                  <div>
-                    <strong>Sneha Kulkarni</strong> (28, Pune) ·
-                    <span class="tag">Bride</span>
-                    <p
-                      style="
-                        margin: 2px 0;
-                        color: var(--muted);
-                        font-size: 15px;
-                      "
-                    >
-                      Accepted your connection request
+                  <div style="flex: 1">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px">
+                      <div>
+                        <strong>Sneha Kulkarni</strong> (28, Pune) · <span class="tag">Bride</span>
+                      </div>
+                      <span style="font-size: 13px; color: var(--muted)">Received 2 days ago</span>
+                    </div>
+                    <p style="margin: 6px 0 10px; color: var(--ink); font-size: 15px; line-height: 1.45; background: var(--bg); padding: 10px 14px; border-radius: 12px; border: 1px solid var(--line)">
+                      “Our family appreciated your thoughtful bio and values. We would be pleased to explore further conversation through Sutram advisors.”
                     </p>
-                  </div>
-                </div>
-                <div class="interest-item">
-                  <img
-                    class="interest-avatar"
-                    src="assets/images/m22.webp"
-                    alt="Siddharth Menon"
-                  />
-                  <div>
-                    <strong>Siddharth Menon</strong> (28, Chennai) ·
-                    <span class="tag">Groom</span>
-                    <p
-                      style="
-                        margin: 2px 0;
-                        color: var(--muted);
-                        font-size: 15px;
-                      "
-                    >
-                      Shortlisted your profile for mutual introduction
-                    </p>
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap">
+                      <button class="btn btn-primary interest">Accept & Connect</button>
+                      <button class="btn btn-secondary">View Profile</button>
+                      <button class="btn btn-ghost" onclick="toast('Interest politely declined.')">Decline Politely</button>
+                    </div>
                   </div>
                 </div>
               </div>
             </article>
+
+            <!-- Subsection 2: Mutual Connections & Active Introductions -->
+            <article class="card" style="margin-bottom: 22px">
+              <h3 style="margin: 0 0 14px; color: var(--red); font-weight: 400">
+                Mutual Connections (Introductions in Progress)
+              </h3>
+              <div class="grid grid-2" style="grid-template-columns: 1fr 1fr; gap: 16px">
+                <div style="background: var(--bg); border: 1px solid var(--line); border-radius: 16px; padding: 18px">
+                  <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 10px">
+                    <img class="interest-avatar" src="assets/images/m22.webp" alt="Siddharth Menon" />
+                    <div>
+                      <strong>Siddharth Menon</strong> (28, Chennai)<br />
+                      <span class="tag" style="background: #e8f5e9; color: #2e7d32; font-weight: bold">Mutual Match ✓</span>
+                    </div>
+                  </div>
+                  <p style="font-size: 14px; color: var(--muted); margin: 0 0 12px">
+                    Both families accepted connection on Nov 9. Advisor call scheduled for Thursday.
+                  </p>
+                  <div style="display: flex; gap: 8px">
+                    <button class="btn btn-primary" onclick="toast('Opening secure advisor chat...')">Open Chat</button>
+                    <button class="btn btn-secondary" onclick="toast('Downloading verified family summary...')">Family Dossier</button>
+                  </div>
+                </div>
+
+                <div style="background: var(--bg); border: 1px solid var(--line); border-radius: 16px; padding: 18px">
+                  <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 10px">
+                    <img class="interest-avatar" src="assets/images/g8.avif" alt="Meera Nambiar" />
+                    <div>
+                      <strong>Meera Nambiar</strong> (26, Bengaluru)<br />
+                      <span class="tag" style="background: #e8f5e9; color: #2e7d32; font-weight: bold">Mutual Match ✓</span>
+                    </div>
+                  </div>
+                  <p style="font-size: 14px; color: var(--muted); margin: 0 0 12px">
+                    Connection accepted on Nov 6. Contact cards exchanged with mutual consent.
+                  </p>
+                  <div style="display: flex; gap: 8px">
+                    <button class="btn btn-primary" onclick="toast('Opening secure advisor chat...')">Open Chat</button>
+                    <button class="btn btn-secondary" onclick="toast('Viewing verified contact card...')">Contact Card</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Subsection 3: Outreach & Shortlisted Tracker -->
+            <div class="grid grid-2">
+              <article class="card">
+                <span class="eyebrow">Outreach Tracker</span>
+                <h3 style="margin: 6px 0 12px">Interests You Sent</h3>
+                <ul class="list" style="font-size: 15px">
+                  <li style="display: flex; justify-content: space-between; align-items: center">
+                    <span>Kavya Krishnan (27, Kochi)</span>
+                    <span class="tag" style="font-size: 13px">Under Family Review</span>
+                  </li>
+                  <li style="display: flex; justify-content: space-between; align-items: center">
+                    <span>Vikram Deshmukh (30, Mumbai)</span>
+                    <span class="tag" style="font-size: 13px">Awaiting Response</span>
+                  </li>
+                  <li style="display: flex; justify-content: space-between; align-items: center">
+                    <span>Ananya Nair (28, Delhi NCR)</span>
+                    <span class="tag" style="font-size: 13px">Profile Viewed</span>
+                  </li>
+                </ul>
+              </article>
+              <article class="card">
+                <span class="eyebrow">Saved Profiles</span>
+                <h3 style="margin: 6px 0 12px">Shortlisted Profiles (3)</h3>
+                <p style="font-size: 14px; color: var(--muted); margin: 0 0 12px">
+                  Profiles bookmarked for family discussion or weekend consultation.
+                </p>
+                <div style="display: flex; gap: 10px; margin-bottom: 14px">
+                  <img src="assets/images/m33.jfif" alt="Saved Profile" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover" />
+                  <img src="assets/images/fam12.jfif" alt="Saved Profile" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover" />
+                  <img src="assets/images/b14.jpg" alt="Saved Profile" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover" />
+                </div>
+                <button class="btn btn-secondary" style="width: 100%" onclick="toast('Viewing 3 shortlisted profiles.')">
+                  Manage Shortlist
+                </button>
+              </article>
+            </div>
           </section>
-          <section id="settings" style="margin: 22px 0">
+
+          <!-- TAB 4: ACCOUNT SETTINGS & PRIVACY -->
+          <section id="settings" class="dash-section" style="margin: 22px 0">
+
+            <!-- Subsection 1: Profile Visibility & Privacy Shield -->
+            <article class="card" style="margin-bottom: 22px">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px solid var(--line); padding-bottom: 12px">
+                <div>
+                  <h3 style="margin: 0; color: var(--red); font-weight: 400">Profile Visibility & Shield</h3>
+                  <p style="margin: 4px 0 0; color: var(--muted); font-size: 14px">
+                    Manage how your profile and photographs are presented to other members
+                  </p>
+                </div>
+                <span class="tag" style="background: #e8f5e9; color: #2e7d32">Privacy Shield: Active</span>
+              </div>
+
+              <div class="setting-row">
+                <div class="setting-info">
+                  <h4>Photo Portfolio Visibility</h4>
+                  <p>Choose who can view your full photographic album and high-resolution portraits</p>
+                  <div style="margin-top: 8px; display: flex; gap: 12px; flex-wrap: wrap; font-size: 14px">
+                    <label style="display: flex; align-items: center; gap: 6px; cursor: pointer">
+                      <input type="radio" name="photoVis" checked /> Visible to Verified Members Only
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 6px; cursor: pointer">
+                      <input type="radio" name="photoVis" /> Only on Mutual Accepted Interest
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 6px; cursor: pointer">
+                      <input type="radio" name="photoVis" /> Shielded (Request Approval Each Time)
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="setting-row">
+                <div class="setting-info">
+                  <h4>Contact Information Shield</h4>
+                  <p>Keep your phone number, email address and family phone hidden until formal advisor introduction</p>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" checked />
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+              <div class="setting-row">
+                <div class="setting-info">
+                  <h4>Stealth & Discretion Mode</h4>
+                  <p>Browse other profiles discreetly without appearing in their 'Recent Visitors' history</p>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" />
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+              <div class="setting-row">
+                <div class="setting-info">
+                  <h4>Curated Recommendation Eligibility</h4>
+                  <p>Allow your verified profile to be considered for daily advisor matching and recommendations</p>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" checked />
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+              <div style="margin-top: 16px; display: flex; justify-content: flex-end">
+                <button class="btn btn-primary" onclick="toast('Visibility settings saved successfully.')">
+                  Save Privacy Preferences
+                </button>
+              </div>
+            </article>
+
+            <!-- Subsection 2: Communication Preferences & Alerts -->
+            <article class="card" style="margin-bottom: 22px">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px solid var(--line); padding-bottom: 12px">
+                <div>
+                  <h3 style="margin: 0; color: var(--red); font-weight: 400">Communication & Notification Preferences</h3>
+                  <p style="margin: 4px 0 0; color: var(--muted); font-size: 14px">
+                    Customize how and when you and your family receive matchmaking updates
+                  </p>
+                </div>
+              </div>
+
+              <div class="setting-row">
+                <div class="setting-info">
+                  <h4>WhatsApp Match Alerts</h4>
+                  <p>Receive immediate alerts on WhatsApp when a highly compatible profile expresses interest</p>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" checked />
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+              <div class="setting-row">
+                <div class="setting-info">
+                  <h4>Weekly Curated Email Digest</h4>
+                  <p>Receive a weekly summary of new verified recommendations and relationship insights</p>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" checked />
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+              <div class="setting-row">
+                <div class="setting-info">
+                  <h4>Preferred Advisor Call Window</h4>
+                  <p>Select your convenient time window for advisor updates and family consultations</p>
+                </div>
+                <select style="padding: 8px 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface)">
+                  <option>Weekdays (6:00 PM – 8:00 PM)</option>
+                  <option>Weekdays (12:00 PM – 2:00 PM)</option>
+                  <option>Weekends (10:00 AM – 1:00 PM)</option>
+                </select>
+              </div>
+
+              <div class="setting-row">
+                <div class="setting-info">
+                  <h4>Family Secondary Notification CC</h4>
+                  <p>Notify a secondary family email or phone number for scheduled meeting invitations</p>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" checked />
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+              <div style="margin-top: 16px; display: flex; justify-content: flex-end">
+                <button class="btn btn-primary" onclick="toast('Communication preferences updated.')">
+                  Save Communication Settings
+                </button>
+              </div>
+            </article>
+
+            <!-- Subsection 3: Security, ID Verification & Account Governance -->
             <article class="card">
-              <h3>Account settings & privacy</h3>
-              <ul class="list">
-                <li>Profile visibility — not connected</li>
-                <li>Communication preferences — not connected</li>
-                <li>Block and report — backend required</li>
-                <li>
-                  Data export and account deletion — request workflow required
-                </li>
-              </ul>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px solid var(--line); padding-bottom: 12px">
+                <div>
+                  <h3 style="margin: 0; color: var(--red); font-weight: 400">Security & Account Governance</h3>
+                  <p style="margin: 4px 0 0; color: var(--muted); font-size: 14px">
+                    Identity authentication status, two-factor security and DPDP / GDPR data rights
+                  </p>
+                </div>
+              </div>
+
+              <div class="setting-row">
+                <div class="setting-info">
+                  <h4>Government ID Verification</h4>
+                  <p>Aadhaar / Passport verified on Nov 4, 2026. Profile carries verified trust badge.</p>
+                </div>
+                <span class="tag" style="background: #e8f5e9; color: #2e7d32; font-weight: bold">Verified ✓</span>
+              </div>
+
+              <div class="setting-row">
+                <div class="setting-info">
+                  <h4>Two-Factor Authentication (2FA)</h4>
+                  <p>Sign-in protected with phone SMS OTP and authenticator verification</p>
+                </div>
+                <span class="tag" style="background: #e8f5e9; color: #2e7d32; font-weight: bold">Active ✓</span>
+              </div>
+
+              <div class="setting-row">
+                <div class="setting-info">
+                  <h4>Download Personal Data Archive</h4>
+                  <p>Request an encrypted download of all profile bio data, photos, activity logs and messages</p>
+                </div>
+                <button class="btn btn-secondary" onclick="toast('Data export archive prepared and emailed.')">
+                  Download Archive
+                </button>
+              </div>
+
+              <div class="setting-row">
+                <div class="setting-info">
+                  <h4>Pause or Delete Account</h4>
+                  <p>Temporarily pause your profile visibility or submit a permanent deletion request</p>
+                </div>
+                <div style="display: flex; gap: 8px">
+                  <button class="btn btn-ghost" onclick="toast('Profile paused. You will not appear in searches.')">
+                    Pause Profile
+                  </button>
+                  <button class="btn btn-ghost" style="color: var(--red); border-color: #e0b4b4" onclick="toast('Deletion request received. Our trust team will process it within 24 hours.')">
+                    Delete Account
+                  </button>
+                </div>
+              </div>
             </article>
           </section>
         </main>

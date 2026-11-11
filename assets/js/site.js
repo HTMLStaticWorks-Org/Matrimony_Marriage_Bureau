@@ -65,20 +65,112 @@ document
 // Dashboard mobile sidebar menu toggle
 document
   .getElementById("dashMenuToggle")
-  ?.addEventListener("click", () =>
-    document.getElementById("sideLinks")?.classList.toggle("open"),
-  );
+  ?.addEventListener("click", () => {
+    document.getElementById("sideLinks")?.classList.toggle("open");
+    document.getElementById("navLinks")?.classList.toggle("open");
+  });
 
-// Dashboard sidebar active link switching
-document.querySelectorAll(".side-links > a").forEach((a) =>
-  a.addEventListener("click", () => {
-    document
-      .querySelectorAll(".side-links > a")
-      .forEach((x) => x.classList.remove("active"));
-    a.classList.add("active");
-    document.getElementById("sideLinks")?.classList.remove("open");
-  }),
-);
+// Tab metadata for dynamic header updates
+const dashTabMeta = {
+  overview: {
+    eyebrow: "Personalized Overview",
+    title: "Welcome to Sutram",
+    subtitle: "A real-time snapshot of your matchmaking progress, curated introductions and profile health.",
+  },
+  recommendations: {
+    eyebrow: "Curated Connections",
+    title: "Partner Recommendations",
+    subtitle: "Profiles screened by our advisors for cultural alignment, mutual career respect and shared life values.",
+  },
+  interests: {
+    eyebrow: "Connection Activity",
+    title: "Interests Received & Sent",
+    subtitle: "Manage pending introductions, mutual connections and your sent interest tracker.",
+  },
+  settings: {
+    eyebrow: "Privacy & Account Governance",
+    title: "Account Settings & Privacy",
+    subtitle: "Comprehensive control over your profile visibility, confidential communication channels, and security preferences.",
+  },
+};
+
+// Dashboard section tab switcher
+function switchDashTab(targetId) {
+  if (
+    !targetId ||
+    targetId === "#" ||
+    targetId.startsWith("http") ||
+    targetId.includes(".html")
+  )
+    return;
+  const cleanId = targetId.startsWith("#") ? targetId.slice(1) : targetId;
+  const targetSection = document.getElementById(cleanId);
+  if (!targetSection || !targetSection.classList.contains("dash-section"))
+    return;
+
+  // Toggle active section
+  document
+    .querySelectorAll(".dash-section")
+    .forEach((s) => s.classList.remove("active"));
+  targetSection.classList.add("active");
+
+  // Dynamically update dashboard header based on active tab
+  const meta = dashTabMeta[cleanId];
+  if (meta) {
+    const eyebrowEl = document.getElementById("dashEyebrow");
+    const titleEl = document.getElementById("dashTitle");
+    const subtitleEl = document.getElementById("dashSubtitle");
+    if (eyebrowEl) eyebrowEl.textContent = meta.eyebrow;
+    if (titleEl) titleEl.textContent = meta.title;
+    if (subtitleEl) subtitleEl.textContent = meta.subtitle;
+  }
+
+  // Update active navigation state
+  document.querySelectorAll(".side-links > a").forEach((a) => {
+    const href = a.getAttribute("href") || "";
+    if (href === `#${cleanId}`) {
+      a.classList.add("active");
+    } else if (href.startsWith("#")) {
+      a.classList.remove("active");
+    }
+  });
+
+  // Close mobile sidebar if open
+  document.getElementById("navLinks")?.classList.remove("open");
+  document.getElementById("sideLinks")?.classList.remove("open");
+
+  // Scroll to top of dash-main
+  const main = document.querySelector(".dash-main");
+  if (main) {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+}
+window.switchDashTab = switchDashTab;
+
+// Bind clicks on sidebar navigation links
+document.querySelectorAll(".side-links > a").forEach((a) => {
+  const href = a.getAttribute("href");
+  if (href && href.startsWith("#")) {
+    a.addEventListener("click", (e) => {
+      e.preventDefault();
+      history.pushState(null, "", href);
+      switchDashTab(href);
+    });
+  }
+});
+
+// React to browser back/forward or hash changes
+window.addEventListener("hashchange", () => {
+  if (window.location.hash) {
+    switchDashTab(window.location.hash);
+  }
+});
+
+// Initialize on page load for dashboard
+if (document.querySelector(".dashboard")) {
+  const initialHash = window.location.hash || "#overview";
+  switchDashTab(initialHash);
+}
 
 // Quick search form (Home page)
 document.getElementById("quickSearch")?.addEventListener("submit", (e) => {
