@@ -1,1 +1,286 @@
-<!doctype html><html lang="en" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#F8F1DC"><meta name="description" content="Sutram — thoughtful matchmaking and meaningful connections."><title>Sutram | dashboard</title><link rel="icon" type="image/png" href="assets/images/sutram-logo.png"><link rel="stylesheet" href="assets/css/style.css"></head><body><div id="app"><div class="dashboard"><aside class="sidebar"><div class="sidebar-head"><a class="brand" href="index.html" aria-label="Sutram home"><img src="assets/images/sutram-logo.png" alt="Sutram"></a><button class="icon-btn menu-toggle" id="menuToggle" type="button" aria-label="Open navigation">☰</button></div><div class="sidebar-sub" style="margin-top:22px;font-size:15px;color:#d8c9b8">MEMBER SPACE · PREVIEW</div><nav class="side-links" id="navLinks"><a class="active" href="#overview">My Dashboard</a><a href="#recommendations">Partner Recommendations</a><a href="#interests">Interests Received</a><a href="#settings">Account Settings</a><a href="index.html">Logout</a><div class="mobile-menu-actions"><div class="mobile-menu-toggles"><button class="icon-btn theme-toggle" type="button" aria-label="Toggle theme">☾</button><button class="icon-btn dir-toggle" type="button" aria-label="Toggle text direction">RTL</button><button class="icon-btn" type="button" title="Notifications">♧</button></div></div></nav></aside><main class="dash-main"><div class="dash-top"><div><span class="eyebrow">Member dashboard preview</span><h1 style="color:var(--red);font-weight:400;margin:4px 0">Welcome to Sutram</h1><p style="color:var(--muted);margin:0">Your private space for thoughtful connections.</p></div><div class="dash-actions"><button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">☾</button> <button class="icon-btn dir-toggle" id="dirToggle" type="button" aria-label="Toggle text direction">RTL</button> <button class="icon-btn" type="button" title="Notifications">♧</button></div></div><div class="notice">This is a front-end demonstration with sample data. It is not a secure member account. Authentication, private records, messaging and permissions must be implemented on a backend before real members use it.</div><section id="overview" style="margin:22px 0"><div class="grid grid-3"><article class="card"><p>Profile completeness</p><div class="metric">65%</div><div style="height:7px;background:var(--cream);border-radius:8px"><div style="width:65%;height:7px;background:var(--yellow);border-radius:8px"></div></div></article><article class="card"><p>Recommended matches</p><div class="metric">08</div><p>Sample count only</p></article><article class="card"><p>Recent visitors</p><div class="metric">04</div><p>Sample count only</p></article></div></section><section id="recommendations" style="margin:22px 0"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px"><h3 style="margin:0;color:var(--red);font-weight:400">Partner recommendations</h3><span style="color:var(--muted);font-size:15px">Curated for you</span></div><div class="grid grid-3"><article class="card profile-card"><div class="profile-photo"><img src="assets/images/g9.jpg" alt="Ananya Rao"><span class="profile-badge badge-bride">Bride</span></div><div class="profile-info"><h3>Ananya Rao</h3><p>26 years · Product Designer<br>Hyderabad</p><button class="btn btn-secondary interest">Express interest</button></div></article><article class="card profile-card"><div class="profile-photo"><img src="assets/images/m6.jpg" alt="Rahul Verma"><span class="profile-badge badge-groom">Groom</span></div><div class="profile-info"><h3>Rahul Verma</h3><p>29 years · Cloud Architect<br>Bengaluru</p><button class="btn btn-secondary interest">Express interest</button></div></article><article class="card profile-card"><div class="profile-photo"><img src="assets/images/g11.jpg" alt="Pooja Sharma"><span class="profile-badge badge-bride">Bride</span></div><div class="profile-info"><h3>Pooja Sharma</h3><p>27 years · Financial Analyst<br>Mumbai</p><button class="btn btn-secondary interest">Express interest</button></div></article></div></section><section id="interests" style="margin:22px 0"><article class="card"><h3>Interests received & recent activity</h3><div><div class="interest-item"><img class="interest-avatar" src="assets/images/m7.jpg" alt="Aditya Reddy"><div><strong>Aditya Reddy</strong> (31, Hyderabad) · <span class="tag">Groom</span><p style="margin:2px 0;color:var(--muted);font-size:15px">Expressed interest in your profile yesterday</p></div></div><div class="interest-item"><img class="interest-avatar" src="assets/images/g10.jpg" alt="Sneha Kulkarni"><div><strong>Sneha Kulkarni</strong> (28, Pune) · <span class="tag">Bride</span><p style="margin:2px 0;color:var(--muted);font-size:15px">Accepted your connection request</p></div></div><div class="interest-item"><img class="interest-avatar" src="assets/images/m22.webp" alt="Siddharth Menon"><div><strong>Siddharth Menon</strong> (28, Chennai) · <span class="tag">Groom</span><p style="margin:2px 0;color:var(--muted);font-size:15px">Shortlisted your profile for mutual introduction</p></div></div></div></article></section><section id="settings" style="margin:22px 0"><article class="card"><h3>Account settings & privacy</h3><ul class="list"><li>Profile visibility — not connected</li><li>Communication preferences — not connected</li><li>Block and report — backend required</li><li>Data export and account deletion — request workflow required</li></ul></article></section></main></div></div><script src="assets/js/site.js"></script></body></html>
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#F8F1DC" />
+    <meta
+      name="description"
+      content="Sutram — thoughtful matchmaking and meaningful connections."
+    />
+    <title>Sutram | dashboard</title>
+    <link rel="icon" type="image/png" href="assets/images/sutram-logo.png" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="dashboard">
+        <aside class="sidebar">
+          <div class="sidebar-head">
+            <a class="brand" href="index.html" aria-label="Sutram home"
+              ><img src="assets/images/sutram-logo.png" alt="Sutram" /></a
+            ><button
+              class="icon-btn menu-toggle"
+              id="menuToggle"
+              type="button"
+              aria-label="Open navigation"
+            >
+              ☰
+            </button>
+          </div>
+          <div
+            class="sidebar-sub"
+            style="margin-top: 22px; font-size: 15px; color: #d8c9b8"
+          >
+            MEMBER SPACE · PREVIEW
+          </div>
+          <nav class="side-links" id="navLinks">
+            <a class="active" href="#overview">My Dashboard</a
+            ><a href="#recommendations">Partner Recommendations</a
+            ><a href="#interests">Interests Received</a
+            ><a href="#settings">Account Settings</a
+            ><a href="index.html">Logout</a>
+            <div class="mobile-menu-actions">
+              <div class="mobile-menu-toggles">
+                <button
+                  class="icon-btn theme-toggle"
+                  type="button"
+                  aria-label="Toggle theme"
+                >
+                  ☾</button
+                ><button
+                  class="icon-btn dir-toggle"
+                  type="button"
+                  aria-label="Toggle text direction"
+                >
+                  RTL</button
+                ><button class="icon-btn" type="button" title="Notifications">
+                  ♧
+                </button>
+              </div>
+            </div>
+          </nav>
+        </aside>
+        <main class="dash-main">
+          <div class="dash-top">
+            <div>
+              <span class="eyebrow">Member dashboard preview</span>
+              <h1 style="color: var(--red); font-weight: 400; margin: 4px 0">
+                Welcome to Sutram
+              </h1>
+              <p style="color: var(--muted); margin: 0">
+                Your private space for thoughtful connections.
+              </p>
+            </div>
+            <div class="dash-actions">
+              <button
+                class="icon-btn theme-toggle"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle theme"
+              >
+                ☾
+              </button>
+              <button
+                class="icon-btn dir-toggle"
+                id="dirToggle"
+                type="button"
+                aria-label="Toggle text direction"
+              >
+                RTL
+              </button>
+              <button class="icon-btn" type="button" title="Notifications">
+                ♧
+              </button>
+            </div>
+          </div>
+          <div class="notice">
+            This is a front-end demonstration with sample data. It is not a
+            secure member account. Authentication, private records, messaging
+            and permissions must be implemented on a backend before real members
+            use it.
+          </div>
+          <section id="overview" style="margin: 22px 0">
+            <div class="grid grid-3">
+              <article class="card">
+                <p>Profile completeness</p>
+                <div class="metric">65%</div>
+                <div
+                  style="
+                    height: 7px;
+                    background: var(--cream);
+                    border-radius: 8px;
+                  "
+                >
+                  <div
+                    style="
+                      width: 65%;
+                      height: 7px;
+                      background: var(--yellow);
+                      border-radius: 8px;
+                    "
+                  ></div>
+                </div>
+              </article>
+              <article class="card">
+                <p>Recommended matches</p>
+                <div class="metric">08</div>
+                <p>Sample count only</p>
+              </article>
+              <article class="card">
+                <p>Recent visitors</p>
+                <div class="metric">04</div>
+                <p>Sample count only</p>
+              </article>
+            </div>
+          </section>
+          <section id="recommendations" style="margin: 22px 0">
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 14px;
+              "
+            >
+              <h3 style="margin: 0; color: var(--red); font-weight: 400">
+                Partner recommendations
+              </h3>
+              <span style="color: var(--muted); font-size: 15px"
+                >Curated for you</span
+              >
+            </div>
+            <div class="grid grid-3">
+              <article class="card profile-card">
+                <div class="profile-photo">
+                  <img src="assets/images/g9.jpg" alt="Ananya Rao" /><span
+                    class="profile-badge badge-bride"
+                    >Bride</span
+                  >
+                </div>
+                <div class="profile-info">
+                  <h3>Ananya Rao</h3>
+                  <p>26 years · Product Designer<br />Hyderabad</p>
+                  <button class="btn btn-secondary interest">
+                    Express interest
+                  </button>
+                </div>
+              </article>
+              <article class="card profile-card">
+                <div class="profile-photo">
+                  <img src="assets/images/m6.jpg" alt="Rahul Verma" /><span
+                    class="profile-badge badge-groom"
+                    >Groom</span
+                  >
+                </div>
+                <div class="profile-info">
+                  <h3>Rahul Verma</h3>
+                  <p>29 years · Cloud Architect<br />Bengaluru</p>
+                  <button class="btn btn-secondary interest">
+                    Express interest
+                  </button>
+                </div>
+              </article>
+              <article class="card profile-card">
+                <div class="profile-photo">
+                  <img src="assets/images/g11.jpg" alt="Pooja Sharma" /><span
+                    class="profile-badge badge-bride"
+                    >Bride</span
+                  >
+                </div>
+                <div class="profile-info">
+                  <h3>Pooja Sharma</h3>
+                  <p>27 years · Financial Analyst<br />Mumbai</p>
+                  <button class="btn btn-secondary interest">
+                    Express interest
+                  </button>
+                </div>
+              </article>
+            </div>
+          </section>
+          <section id="interests" style="margin: 22px 0">
+            <article class="card">
+              <h3>Interests received & recent activity</h3>
+              <div>
+                <div class="interest-item">
+                  <img
+                    class="interest-avatar"
+                    src="assets/images/m7.jpg"
+                    alt="Aditya Reddy"
+                  />
+                  <div>
+                    <strong>Aditya Reddy</strong> (31, Hyderabad) ·
+                    <span class="tag">Groom</span>
+                    <p
+                      style="
+                        margin: 2px 0;
+                        color: var(--muted);
+                        font-size: 15px;
+                      "
+                    >
+                      Expressed interest in your profile yesterday
+                    </p>
+                  </div>
+                </div>
+                <div class="interest-item">
+                  <img
+                    class="interest-avatar"
+                    src="assets/images/g10.jpg"
+                    alt="Sneha Kulkarni"
+                  />
+                  <div>
+                    <strong>Sneha Kulkarni</strong> (28, Pune) ·
+                    <span class="tag">Bride</span>
+                    <p
+                      style="
+                        margin: 2px 0;
+                        color: var(--muted);
+                        font-size: 15px;
+                      "
+                    >
+                      Accepted your connection request
+                    </p>
+                  </div>
+                </div>
+                <div class="interest-item">
+                  <img
+                    class="interest-avatar"
+                    src="assets/images/m22.webp"
+                    alt="Siddharth Menon"
+                  />
+                  <div>
+                    <strong>Siddharth Menon</strong> (28, Chennai) ·
+                    <span class="tag">Groom</span>
+                    <p
+                      style="
+                        margin: 2px 0;
+                        color: var(--muted);
+                        font-size: 15px;
+                      "
+                    >
+                      Shortlisted your profile for mutual introduction
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </section>
+          <section id="settings" style="margin: 22px 0">
+            <article class="card">
+              <h3>Account settings & privacy</h3>
+              <ul class="list">
+                <li>Profile visibility — not connected</li>
+                <li>Communication preferences — not connected</li>
+                <li>Block and report — backend required</li>
+                <li>
+                  Data export and account deletion — request workflow required
+                </li>
+              </ul>
+            </article>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script src="assets/js/site.js"></script>
+  </body>
+</html>

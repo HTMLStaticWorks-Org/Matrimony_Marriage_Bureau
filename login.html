@@ -1,1 +1,109 @@
-<!doctype html><html lang="en" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#F8F1DC"><meta name="description" content="Sutram — thoughtful matchmaking and meaningful connections."><title>Sutram | login</title><link rel="icon" type="image/png" href="assets/images/sutram-logo.png"><link rel="stylesheet" href="assets/css/style.css"></head><body class="auth-page"><div id="app"><div class="auth-shell"><div class="auth-tools"><button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">☾</button><button class="icon-btn dir-toggle" id="dirToggle" type="button" aria-label="Toggle text direction">RTL</button></div><form class="auth-card" id="authForm"><a class="brand" href="index.html" aria-label="Sutram home"><img src="assets/images/sutram-logo.png" alt="Sutram"></a><h1>Welcome back</h1><p style="text-align:center;color:var(--muted)">Sign in to continue to your member space.</p><div class="field"><label>Email or mobile</label><input required name="identity" autocomplete="username"></div><div class="field"><label>Password</label><div class="pwd-wrap"><input required type="password" name="password" minlength="8" autocomplete="current-password"><button class="pwd-toggle" type="button" aria-label="Toggle password visibility" title="Show password"></button></div></div><div style="display:flex;justify-content:space-between;font-size:15px"><label><input type="checkbox"> Remember me</label><a href="contact.html" style="color:var(--red)">Forgot password?</a></div><button class="btn btn-primary" type="submit">Login</button><div class="auth-divider"><span>or continue with</span></div><div class="oauth-btns"><button class="btn btn-ghost oauth-btn" type="button" data-provider="Google"><span class="google-icon" aria-hidden="true"></span> Google</button><button class="btn btn-ghost oauth-btn" type="button" data-provider="Apple"><span class="apple-icon" aria-hidden="true"></span> Apple</button></div><p id="authFeedback" style="color:var(--muted);font-size:15px;text-align:center">Front-end preview only. Secure authentication is not connected.</p><p style="text-align:center;font-size:16px;margin-bottom:0">New to Sutram? <a style="color:var(--red)" href="signup.html">Create account</a></p></form></div></div><script src="assets/js/site.js"></script></body></html>
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#F8F1DC" />
+    <meta
+      name="description"
+      content="Sutram — thoughtful matchmaking and meaningful connections."
+    />
+    <title>Sutram | login</title>
+    <link rel="icon" type="image/png" href="assets/images/sutram-logo.png" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body class="auth-page">
+    <div id="app">
+      <div class="auth-shell">
+        <div class="auth-tools">
+          <button
+            class="icon-btn theme-toggle"
+            id="themeToggle"
+            type="button"
+            aria-label="Toggle theme"
+          >
+            ☾</button
+          ><button
+            class="icon-btn dir-toggle"
+            id="dirToggle"
+            type="button"
+            aria-label="Toggle text direction"
+          >
+            RTL
+          </button>
+        </div>
+        <form class="auth-card" id="authForm">
+          <a class="brand" href="index.html" aria-label="Sutram home"
+            ><img src="assets/images/sutram-logo.png" alt="Sutram"
+          /></a>
+          <h1>Welcome back</h1>
+          <p style="text-align: center; color: var(--muted)">
+            Sign in to continue to your member space.
+          </p>
+          <div class="field">
+            <label>Email or mobile</label
+            ><input required name="identity" autocomplete="username" />
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <div class="pwd-wrap">
+              <input
+                required
+                type="password"
+                name="password"
+                minlength="8"
+                autocomplete="current-password"
+              /><button
+                class="pwd-toggle"
+                type="button"
+                aria-label="Toggle password visibility"
+                title="Show password"
+              ></button>
+            </div>
+          </div>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              font-size: 15px;
+            "
+          >
+            <label><input type="checkbox" /> Remember me</label
+            ><a href="contact.html" style="color: var(--red)"
+              >Forgot password?</a
+            >
+          </div>
+          <button class="btn btn-primary" type="submit">Login</button>
+          <div class="auth-divider"><span>or continue with</span></div>
+          <div class="oauth-btns">
+            <button
+              class="btn btn-ghost oauth-btn"
+              type="button"
+              data-provider="Google"
+            >
+              <span class="google-icon" aria-hidden="true"></span>
+              Google</button
+            ><button
+              class="btn btn-ghost oauth-btn"
+              type="button"
+              data-provider="Apple"
+            >
+              <span class="apple-icon" aria-hidden="true"></span> Apple
+            </button>
+          </div>
+          <p
+            id="authFeedback"
+            style="color: var(--muted); font-size: 15px; text-align: center"
+          >
+            Front-end preview only. Secure authentication is not connected.
+          </p>
+          <p style="text-align: center; font-size: 16px; margin-bottom: 0">
+            New to Sutram?
+            <a style="color: var(--red)" href="signup.html">Create account</a>
+          </p>
+        </form>
+      </div>
+    </div>
+    <script src="assets/js/site.js"></script>
+  </body>
+</html>

@@ -1,1 +1,399 @@
-<!doctype html><html lang="en" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#F8F1DC"><meta name="description" content="Sutram — thoughtful matchmaking and meaningful connections."><title>Sutram | search profiles</title><link rel="icon" type="image/png" href="assets/images/sutram-logo.png"><link rel="stylesheet" href="assets/css/style.css"></head><body><div id="app"><header class="site-header"><div class="container nav-wrap"><a class="brand" href="index.html" aria-label="Sutram home"><img src="assets/images/sutram-logo.png" alt="Sutram"></a><nav class="nav-links" id="navLinks"><a class="" href="index.html">Home</a><a class="" href="home-2.html">Home 2</a><a class="active" href="search-profiles.html">Search Profiles</a><a class="" href="success-stories.html">Success Stories</a><a class="" href="membership-plans.html">Membership</a><a class="" href="about.html">About</a><a class="" href="contact.html">Contact</a><div class="mobile-menu-actions"><div class="mobile-menu-toggles"><button class="icon-btn theme-toggle" type="button" aria-label="Toggle theme">☾</button><button class="icon-btn dir-toggle" type="button" aria-label="Toggle text direction">RTL</button></div><div class="mobile-menu-btns"><a class="btn btn-secondary" href="login.html">Login</a><a class="btn btn-primary" href="dashboard.html">Dashboard</a></div></div></nav><div class="nav-actions"><button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">☾</button><button class="icon-btn dir-toggle" id="dirToggle" type="button" aria-label="Toggle text direction">RTL</button><a class="btn btn-secondary" href="login.html">Login</a><a class="btn btn-primary" href="dashboard.html">Dashboard</a><button class="icon-btn menu-toggle" id="menuToggle" type="button" aria-label="Open navigation">☰</button></div></div></header><main><section class="page-hero"><div class="container"><span class="eyebrow">Discover thoughtfully</span><h1>Search Profiles</h1><p>Use the filters to explore verified sample profiles. Connect with compatible people when you are ready.</p></div></section><section class="section"><div class="container"><form class="card" id="profileFilters"><div class="grid grid-4"><div class="field"><label>Looking for</label><select><option>Any</option><option>Bride</option><option>Groom</option></select></div><div class="field"><label>Age</label><select><option>Any age</option><option>21–25</option><option>26–30</option><option>31–35</option></select></div><div class="field"><label>Education</label><input placeholder="e.g. Graduate"></div><div class="field"><label>Profession</label><input placeholder="e.g. Engineer"></div><div class="field"><label>Location</label><input placeholder="City"></div><div class="field"><label>Zodiac preference</label><input placeholder="Optional"></div><div class="field"><label>Food habits</label><select><option>Any</option><option>Vegetarian</option><option>Non-vegetarian</option><option>Vegan</option></select></div><div class="field"><label>Community preference</label><input placeholder="Optional"></div></div><button class="btn btn-primary" style="margin-top:16px" type="submit">Apply filters</button> <button class="btn btn-ghost" type="reset">Clear</button></form><div style="display:flex;justify-content:space-between;align-items:center;margin:30px 0 16px"><h2 style="color:var(--red);font-weight:400">Curated member profiles</h2><span id="resultCount" style="color:var(--muted);font-size:16px">10 profiles</span></div><div class="grid grid-3" id="profiles"><article class="card profile-card"><div class="profile-photo"><img src="assets/images/g9.jpg" alt="Ananya Rao"><span class="profile-badge badge-bride">Bride</span></div><div class="profile-info"><span class="tag">Verified Profile</span><h3>Ananya Rao</h3><p>26 years · Product Designer<br>Hyderabad</p><button class="btn btn-secondary interest">Express interest</button></div></article><article class="card profile-card"><div class="profile-photo"><img src="assets/images/m6.jpg" alt="Rahul Verma"><span class="profile-badge badge-groom">Groom</span></div><div class="profile-info"><span class="tag">Verified Profile</span><h3>Rahul Verma</h3><p>29 years · Cloud Architect<br>Bengaluru</p><button class="btn btn-secondary interest">Express interest</button></div></article><article class="card profile-card"><div class="profile-photo"><img src="assets/images/g10.jpg" alt="Sneha Kulkarni"><span class="profile-badge badge-bride">Bride</span></div><div class="profile-info"><span class="tag">Verified Profile</span><h3>Sneha Kulkarni</h3><p>28 years · Data Scientist<br>Pune</p><button class="btn btn-secondary interest">Express interest</button></div></article><article class="card profile-card"><div class="profile-photo"><img src="assets/images/m7.jpg" alt="Aditya Reddy"><span class="profile-badge badge-groom">Groom</span></div><div class="profile-info"><span class="tag">Verified Profile</span><h3>Aditya Reddy</h3><p>31 years · Civil Engineer & Founder<br>Hyderabad</p><button class="btn btn-secondary interest">Express interest</button></div></article><article class="card profile-card"><div class="profile-photo"><img src="assets/images/g11.jpg" alt="Pooja Sharma"><span class="profile-badge badge-bride">Bride</span></div><div class="profile-info"><span class="tag">Verified Profile</span><h3>Pooja Sharma</h3><p>27 years · Financial Analyst<br>Mumbai</p><button class="btn btn-secondary interest">Express interest</button></div></article><article class="card profile-card"><div class="profile-photo"><img src="assets/images/m22.webp" alt="Siddharth Menon"><span class="profile-badge badge-groom">Groom</span></div><div class="profile-info"><span class="tag">Verified Profile</span><h3>Siddharth Menon</h3><p>28 years · Investment Banker<br>Chennai</p><button class="btn btn-secondary interest">Express interest</button></div></article><article class="card profile-card"><div class="profile-photo"><img src="assets/images/g13.jpg" alt="Divya Nair"><span class="profile-badge badge-bride">Bride</span></div><div class="profile-info"><span class="tag">Verified Profile</span><h3>Divya Nair</h3><p>29 years · Pediatrician<br>Kochi</p><button class="btn btn-secondary interest">Express interest</button></div></article><article class="card profile-card"><div class="profile-photo"><img src="assets/images/m223.jfif" alt="Vikram Joshi"><span class="profile-badge badge-groom">Groom</span></div><div class="profile-info"><span class="tag">Verified Profile</span><h3>Vikram Joshi</h3><p>30 years · Senior Software Engineer<br>Delhi NCR</p><button class="btn btn-secondary interest">Express interest</button></div></article><article class="card profile-card"><div class="profile-photo"><img src="assets/images/g8.avif" alt="Meera Iyer"><span class="profile-badge badge-bride">Bride</span></div><div class="profile-info"><span class="tag">Verified Profile</span><h3>Meera Iyer</h3><p>25 years · Content Strategist<br>Bengaluru</p><button class="btn btn-secondary interest">Express interest</button></div></article><article class="card profile-card"><div class="profile-photo"><img src="assets/images/m33.jfif" alt="Arjun Patel"><span class="profile-badge badge-groom">Groom</span></div><div class="profile-info"><span class="tag">Verified Profile</span><h3>Arjun Patel</h3><p>32 years · Management Consultant<br>Ahmedabad</p><button class="btn btn-secondary interest">Express interest</button></div></article></div><p style="color:var(--muted);font-size:15px;margin-top:20px">Real profile search, privacy controls and interest delivery require authenticated backend services and member consent.</p></div></section><section class="section alt"><div class="container"><div class="section-head"><span class="eyebrow">Discovery dimensions</span><h2>Explore matches by what matters most</h2><p>Look beyond basic demographics to find alignment in daily life and long-term goals.</p></div><div class="grid grid-4"><article class="card"><img class="card-media" src="assets/images/m33.jfif" alt="Career and ambition"><span class="tag">Discovery focus</span><h3>Career & ambition</h3><p>Connect with professionals across technology, medicine, research, design and entrepreneurship.</p></article><article class="card"><img class="card-media" src="assets/images/fam11.jfif" alt="Cultural roots and family"><span class="tag">Discovery focus</span><h3>Cultural roots</h3><p>Filter by mother tongue, regional heritage or an open cosmopolitan family outlook.</p></article><article class="card"><img class="card-media" src="assets/images/b17.jpg" alt="Lifestyle harmony"><span class="tag">Discovery focus</span><h3>Lifestyle harmony</h3><p>Align on food habits, wellness routines, travel interests and preferred city of residence.</p></article><article class="card"><img class="card-media" src="assets/images/fam12.jfif" alt="Family values"><span class="tag">Discovery focus</span><h3>Family values</h3><p>Understand expectations around joint or nuclear living, traditions and family involvement.</p></article></div></div></section><section class="section"><div class="container"><div class="section-head"><span class="eyebrow">Respectful browsing</span><h2>How privacy works during profile discovery</h2><p>Designed so every member can explore with confidence and dignity.</p></div><div class="grid grid-3"><article class="card"><div class="feature-icon">🔒</div><h3>Consent-gated photographs</h3><p>Members choose whether photographs are visible to all registered members or only after accepting an interest.</p></article><article class="card"><div class="feature-icon">🤝</div><h3>Mutual interest first</h3><p>Direct messaging and family contact details unlock only when both sides accept an introduction request.</p></article><article class="card"><div class="feature-icon">🚫</div><h3>No public search indexing</h3><p>Member profiles are protected from public search engines and unauthenticated browsing.</p></article></div></div></section></main><footer class="footer"><div class="container"><div class="footer-grid"><div><a class="brand" href="index.html" aria-label="Sutram home"><img src="assets/images/sutram-logo.png" alt="Sutram"></a><p>Meaningful introductions begin with respect, clarity and a thoughtful connection.</p><div class="footer-socials"><a class="social-icon" href="#facebook" aria-label="Facebook" title="Facebook">f</a><a class="social-icon" href="#instagram" aria-label="Instagram" title="Instagram"><span class="insta-cam"></span></a><a class="social-icon wa-icon" href="#whatsapp" aria-label="WhatsApp" title="WhatsApp">✆</a><a class="social-icon" href="#x" aria-label="X" title="X">𝕏</a></div></div><div><h3>Explore</h3><p><a href="search-profiles.html">Search Profiles</a></p><p><a href="membership-plans.html">Membership</a></p><p><a href="success-stories.html">Success Stories</a></p></div><div><h3>Newsletter</h3><p>Subscribe for thoughtful matchmaking insights, community updates and curated introductions.</p><form class="newsletter-form" id="newsletterForm"><input type="email" name="email" required placeholder="Enter your email" aria-label="Email address"><button class="btn btn-primary" type="submit">Subscribe</button></form></div></div><div class="footer-bottom">© 2026 Sutram. Website concept preview. Replace contact details and connect secure services before launch.</div></div></footer></div><script src="assets/js/site.js"></script></body></html>
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F8F1DC" />
+  <meta name="description" content="Sutram — thoughtful matchmaking and meaningful connections." />
+  <title>Sutram | search profiles</title>
+  <link rel="icon" type="image/png" href="assets/images/sutram-logo.png" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+  <div id="app">
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="index.html" aria-label="Sutram home"><img src="assets/images/sutram-logo.png"
+            alt="Sutram" /></a>
+        <nav class="nav-links" id="navLinks">
+          <a class="" href="index.html">Home</a><a class="" href="home-2.html">Home 2</a><a class=""
+            href="about.html">About</a><a class="active" href="search-profiles.html">Search Profiles</a><a class=""
+            href="success-stories.html">Success Stories</a><a class="" href="membership-plans.html">Membership</a><a
+            class="" href="contact.html">Contact</a>
+          <div class="mobile-menu-actions">
+            <div class="mobile-menu-toggles">
+              <button class="icon-btn theme-toggle" type="button" aria-label="Toggle theme">
+                ☾</button><button class="icon-btn dir-toggle" type="button" aria-label="Toggle text direction">
+                RTL
+              </button>
+            </div>
+            <div class="mobile-menu-btns">
+              <a class="btn btn-secondary" href="login.html">Login</a><a class="btn btn-primary"
+                href="dashboard.html">Dashboard</a>
+            </div>
+          </div>
+        </nav>
+        <div class="nav-actions">
+          <button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
+            ☾</button><button class="icon-btn dir-toggle" id="dirToggle" type="button"
+            aria-label="Toggle text direction">
+            RTL</button><a class="btn btn-secondary" href="login.html">Login</a><a class="btn btn-primary"
+            href="dashboard.html">Dashboard</a><button class="icon-btn menu-toggle" id="menuToggle" type="button"
+            aria-label="Open navigation">
+            ☰
+          </button>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <span class="eyebrow">Discover thoughtfully</span>
+          <h1>Search Profiles</h1>
+          <p>
+            Use the filters to explore verified sample profiles. Connect with
+            compatible people when you are ready.
+          </p>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container">
+          <form class="card" id="profileFilters">
+            <div class="grid grid-4">
+              <div class="field">
+                <label>Looking for</label><select>
+                  <option>Any</option>
+                  <option>Bride</option>
+                  <option>Groom</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Age</label><select>
+                  <option>Any age</option>
+                  <option>21–25</option>
+                  <option>26–30</option>
+                  <option>31–35</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Education</label><input placeholder="e.g. Graduate" />
+              </div>
+              <div class="field">
+                <label>Profession</label><input placeholder="e.g. Engineer" />
+              </div>
+              <div class="field">
+                <label>Location</label><input placeholder="City" />
+              </div>
+              <div class="field">
+                <label>Zodiac preference</label><input placeholder="Optional" />
+              </div>
+              <div class="field">
+                <label>Food habits</label><select>
+                  <option>Any</option>
+                  <option>Vegetarian</option>
+                  <option>Non-vegetarian</option>
+                  <option>Vegan</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Community preference</label><input placeholder="Optional" />
+              </div>
+            </div>
+            <button class="btn btn-primary" style="margin-top: 16px" type="submit">
+              Apply filters
+            </button>
+            <button class="btn btn-ghost" type="reset">Clear</button>
+          </form>
+          <div style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 30px 0 16px;
+              ">
+            <h2 style="color: var(--red); font-weight: 400">
+              Curated member profiles
+            </h2>
+            <span id="resultCount" style="color: var(--muted); font-size: 16px">10 profiles</span>
+          </div>
+          <div class="grid grid-3" id="profiles">
+            <article class="card profile-card">
+              <div class="profile-photo">
+                <img src="assets/images/g9.jpg" alt="Ananya Rao" /><span class="profile-badge badge-bride">Bride</span>
+              </div>
+              <div class="profile-info">
+                <span class="tag">Verified Profile</span>
+                <h3>Ananya Rao</h3>
+                <p>26 years · Product Designer<br />Hyderabad</p>
+                <button class="btn btn-secondary interest">
+                  Express interest
+                </button>
+              </div>
+            </article>
+            <article class="card profile-card">
+              <div class="profile-photo">
+                <img src="assets/images/m6.jpg" alt="Rahul Verma" /><span class="profile-badge badge-groom">Groom</span>
+              </div>
+              <div class="profile-info">
+                <span class="tag">Verified Profile</span>
+                <h3>Rahul Verma</h3>
+                <p>29 years · Cloud Architect<br />Bengaluru</p>
+                <button class="btn btn-secondary interest">
+                  Express interest
+                </button>
+              </div>
+            </article>
+            <article class="card profile-card">
+              <div class="profile-photo">
+                <img src="assets/images/g10.jpg" alt="Sunny Emanule" /><span
+                  class="profile-badge badge-bride">Bride</span>
+              </div>
+              <div class="profile-info">
+                <span class="tag">Verified Profile</span>
+                <h3>Sunny Emanule</h3>
+                <p>28 years · Data Scientist<br />Pune</p>
+                <button class="btn btn-secondary interest">
+                  Express interest
+                </button>
+              </div>
+            </article>
+            <article class="card profile-card">
+              <div class="profile-photo">
+                <img src="assets/images/m7.jpg" alt="Aarif Khan" /><span class="profile-badge badge-groom">Groom</span>
+              </div>
+              <div class="profile-info">
+                <span class="tag">Verified Profile</span>
+                <h3>Aarif Khan</h3>
+                <p>31 years · Civil Engineer & Founder<br />Hyderabad</p>
+                <button class="btn btn-secondary interest">
+                  Express interest
+                </button>
+              </div>
+            </article>
+            <article class="card profile-card">
+              <div class="profile-photo">
+                <img src="assets/images/g11.jpg" alt="Pooja Sharma" /><span
+                  class="profile-badge badge-bride">Bride</span>
+              </div>
+              <div class="profile-info">
+                <span class="tag">Verified Profile</span>
+                <h3>Pooja Sharma</h3>
+                <p>27 years · Financial Analyst<br />Mumbai</p>
+                <button class="btn btn-secondary interest">
+                  Express interest
+                </button>
+              </div>
+            </article>
+            <article class="card profile-card">
+              <div class="profile-photo">
+                <img src="assets/images/b.webp" alt="Siddharth Menon" /><span
+                  class="profile-badge badge-groom">Groom</span>
+              </div>
+              <div class="profile-info">
+                <span class="tag">Verified Profile</span>
+                <h3>Siddharth Menon</h3>
+                <p>28 years · Investment Banker<br />Chennai</p>
+                <button class="btn btn-secondary interest">
+                  Express interest
+                </button>
+              </div>
+            </article>
+            <article class="card profile-card">
+              <div class="profile-photo">
+                <img src="assets/images/g13.jpg" alt="Divya Nair" /><span class="profile-badge badge-bride">Bride</span>
+              </div>
+              <div class="profile-info">
+                <span class="tag">Verified Profile</span>
+                <h3>Divya Nair</h3>
+                <p>29 years · Pediatrician<br />Kochi</p>
+                <button class="btn btn-secondary interest">
+                  Express interest
+                </button>
+              </div>
+            </article>
+            <article class="card profile-card">
+              <div class="profile-photo">
+                <img src="assets/images/m223.jfif" alt="Vanya Vira" /><span
+                  class="profile-badge badge-groom">Groom</span>
+              </div>
+              <div class="profile-info">
+                <span class="tag">Verified Profile</span>
+                <h3>Vanya Vira</h3>
+                <p>30 years · Senior Software Engineer<br />Delhi NCR</p>
+                <button class="btn btn-secondary interest">
+                  Express interest
+                </button>
+              </div>
+            </article>
+            <article class="card profile-card">
+              <div class="profile-photo">
+                <img src="assets/images/g.webp" alt="Meera" /><span class="profile-badge badge-bride">Bride</span>
+              </div>
+              <div class="profile-info">
+                <span class="tag">Verified Profile</span>
+                <h3>Meera</h3>
+                <p>25 years · Content Strategist<br />Bengaluru</p>
+                <button class="btn btn-secondary interest">
+                  Express interest
+                </button>
+              </div>
+            </article>
+            <!-- <article class="card profile-card">
+              <div class="profile-photo">
+                <img src="assets/images/m33.jfif" alt="Arjun Patel" /><span
+                  class="profile-badge badge-groom">Groom</span>
+              </div>
+              <div class="profile-info">
+                <span class="tag">Verified Profile</span>
+                <h3>Arjun Patel</h3>
+                <p>32 years · Management Consultant<br />Ahmedabad</p>
+                <button class="btn btn-secondary interest">
+                  Express interest
+                </button>
+              </div>
+            </article> -->
+          </div>
+          <p style="color: var(--muted); font-size: 15px; margin-top: 20px">
+            Real profile search, privacy controls and interest delivery
+            require authenticated backend services and member consent.
+          </p>
+        </div>
+      </section>
+      <section class="section alt">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow">Discovery dimensions</span>
+            <h2>Explore matches by what matters most</h2>
+            <p>
+              Look beyond basic demographics to find alignment in daily life
+              and long-term goals.
+            </p>
+          </div>
+          <div class="grid grid-4">
+            <article class="card">
+              <img class="card-media" src="assets/images/m33.jfif" alt="Career and ambition"
+                style="object-position: center 20%" /><span class="tag">Discovery focus</span>
+              <h3>Career & ambition</h3>
+              <p>
+                Connect with professionals across technology, medicine,
+                research, design and entrepreneurship.
+              </p>
+            </article>
+            <article class="card">
+              <img class="card-media" src="assets/images/fam11.jfif" alt="Cultural roots and family" /><span
+                class="tag">Discovery focus</span>
+              <h3>Cultural roots</h3>
+              <p>
+                Filter by mother tongue, regional heritage or an open
+                cosmopolitan family outlook.
+              </p>
+            </article>
+            <article class="card">
+              <img class="card-media" src="assets/images/b17.jpg" alt="Lifestyle harmony"
+                style="object-position: center 12%" /><span class="tag">Discovery focus</span>
+              <h3>Lifestyle harmony</h3>
+              <p>
+                Align on food habits, wellness routines, travel interests and
+                preferred city of residence.
+              </p>
+            </article>
+            <article class="card">
+              <img class="card-media" src="assets/images/fam12.jfif" alt="Family values"
+                style="object-position: center 15%" /><span class="tag">Discovery focus</span>
+              <h3>Family values</h3>
+              <p>
+                Understand expectations around joint or nuclear living,
+                traditions and family involvement.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow">Respectful browsing</span>
+            <h2>How privacy works during profile discovery</h2>
+            <p>
+              Designed so every member can explore with confidence and
+              dignity.
+            </p>
+          </div>
+          <div class="grid grid-3">
+            <article class="card">
+              <div class="feature-icon">🔒</div>
+              <h3>Consent-gated photographs</h3>
+              <p>
+                Members choose whether photographs are visible to all
+                registered members or only after accepting an interest.
+              </p>
+            </article>
+            <article class="card">
+              <div class="feature-icon">🤝</div>
+              <h3>Mutual interest first</h3>
+              <p>
+                Direct messaging and family contact details unlock only when
+                both sides accept an introduction request.
+              </p>
+            </article>
+            <article class="card">
+              <div class="feature-icon">🚫</div>
+              <h3>No public search indexing</h3>
+              <p>
+                Member profiles are protected from public search engines and
+                unauthenticated browsing.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <a class="brand" href="index.html" aria-label="Sutram home"><img src="assets/images/sutram-logo.png"
+                alt="Sutram" /></a>
+            <p>
+              Meaningful introductions begin with respect, clarity and a
+              thoughtful connection.
+            </p>
+            <div class="footer-socials">
+              <a class="social-icon" href="#facebook" aria-label="Facebook" title="Facebook">f</a><a class="social-icon"
+                href="#instagram" aria-label="Instagram" title="Instagram"><span class="insta-cam"></span></a><a
+                class="social-icon wa-icon" href="#whatsapp" aria-label="WhatsApp" title="WhatsApp">✆</a><a
+                class="social-icon" href="#x" aria-label="X" title="X">𝕏</a>
+            </div>
+          </div>
+          <div>
+            <h3>Explore</h3>
+            <p><a href="search-profiles.html">Search Profiles</a></p>
+            <p><a href="membership-plans.html">Membership</a></p>
+            <p><a href="success-stories.html">Success Stories</a></p>
+          </div>
+          <div>
+            <h3>Newsletter</h3>
+            <p>
+              Subscribe for thoughtful matchmaking insights, community updates
+              and curated introductions.
+            </p>
+            <form class="newsletter-form" id="newsletterForm">
+              <input type="email" name="email" required placeholder="Enter your email"
+                aria-label="Email address" /><button class="btn btn-primary" type="submit">
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          © 2026 Sutram. Website concept preview. Replace contact details and
+          connect secure services before launch.
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="assets/js/site.js"></script>
+</body>
+
+</html>
