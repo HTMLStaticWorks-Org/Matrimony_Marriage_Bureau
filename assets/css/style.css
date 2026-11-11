@@ -1221,12 +1221,19 @@ html[dir="rtl"] .pwd-toggle {
   z-index: 10;
 }
 
+html.menu-locked,
+body.menu-locked {
+  overflow: hidden !important;
+  height: 100% !important;
+  touch-action: none !important;
+}
+
 .dashboard {
   min-height: 100vh;
   position: relative;
 }
 
-@media (min-width: 981px) {
+@media (min-width: 1101px) {
   .dashboard {
     display: block;
   }
@@ -1909,9 +1916,20 @@ html[dir="rtl"] .side-links > a {
     right: auto;
     width: 100%;
     height: auto;
-    z-index: 50;
-    padding: 14px 4%;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+    padding: 12px 18px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .sidebar-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
   }
 
   .sidebar-sub {
@@ -1920,20 +1938,129 @@ html[dir="rtl"] .side-links > a {
 
   .side-links {
     display: none;
-    margin-top: 14px;
-    padding-top: 12px;
-    border-top: 1px solid #ffffff20;
+    position: fixed;
+    top: 68px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: calc(100vh - 68px);
+    height: calc(100dvh - 68px);
+    background: var(--surface);
+    border-top: 1px solid var(--line);
+    padding: 20px 20px 32px;
+    margin-top: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+    z-index: 999;
     flex-direction: column;
   }
 
   .side-links.open {
     display: flex;
+    animation: slideDownMenu 0.22s ease-out;
+  }
+
+  @keyframes slideDownMenu {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .side-links > a {
+    color: var(--ink);
+    padding: 14px 16px;
+    font-size: 17px;
+    font-weight: 500;
+    border-radius: 12px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid transparent;
+  }
+
+  .side-links > a:hover {
+    background: var(--cream);
+    color: var(--red);
+  }
+
+  .side-links > a.active {
+    background: var(--cream);
+    color: var(--red);
+    font-weight: 700;
+    border-inline-start: 4px solid var(--red);
+  }
+
+  body.dark .side-links > a.active {
+    background: rgba(230, 184, 0, 0.15);
+    color: var(--yellow);
+    border-inline-start: 4px solid var(--yellow);
+  }
+
+  body.dark .side-links > a:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--yellow);
   }
 
   .sidebar-footer {
-    padding-top: 14px;
-    margin-top: 10px;
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-top: 18px;
+    margin-top: auto;
+    border-top: 1px solid var(--line);
+    width: 100%;
+  }
+
+  .sidebar-controls-card {
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 10px 14px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  }
+
+  .sidebar-controls-card .icon-btn {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    color: var(--ink);
+  }
+
+  .sidebar-controls-card .icon-btn svg {
+    color: var(--ink);
+    stroke: var(--ink);
+  }
+
+  .sidebar-controls-card .icon-btn:hover {
+    background: var(--red);
+    color: #fff;
+    border-color: var(--red);
+  }
+
+  .sidebar-controls-card .icon-btn:hover svg {
+    color: #fff;
+    stroke: #fff;
+  }
+
+  body.dark .sidebar-controls-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+
+  body.dark .sidebar-controls-card .icon-btn {
+    background: rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.16);
+    color: #f8f1dc;
+  }
+
+  body.dark .sidebar-controls-card .icon-btn svg {
+    color: #f8f1dc;
+    stroke: #f8f1dc;
   }
 
   .dash-actions {
@@ -1944,7 +2071,7 @@ html[dir="rtl"] .side-links > a {
     margin-left: 0 !important;
     margin-right: 0 !important;
     width: 100% !important;
-    padding: 20px;
+    padding: 20px 16px;
   }
 }
 
@@ -2464,6 +2591,10 @@ img[src*="fam12.jfif"] {
 
 img[src*="fam23.jfif"] {
   object-position: center 15% !important;
+}
+
+img[src*="g9.jpg"] {
+  object-position: center 8% !important;
 }
 
 img[src*="g10.jpg"]:not(.interest-avatar) {

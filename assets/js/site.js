@@ -58,20 +58,68 @@ document.querySelectorAll("#dirToggle, .dir-toggle").forEach((b) =>
   }),
 );
 
-// Mobile navigation menu toggle
-document
-  .getElementById("menuToggle")
-  ?.addEventListener("click", () =>
-    document.getElementById("navLinks")?.classList.toggle("open"),
-  );
+// Mobile navigation menu toggle with background scroll locking
+function toggleNavMenu(forceState) {
+  const navLinks = document.getElementById("navLinks");
+  const menuBtn = document.getElementById("menuToggle");
+  if (!navLinks) return;
+  const shouldOpen =
+    typeof forceState === "boolean"
+      ? forceState
+      : !navLinks.classList.contains("open");
+  navLinks.classList.toggle("open", shouldOpen);
+  if (menuBtn) {
+    menuBtn.textContent = shouldOpen ? "✕" : "☰";
+    menuBtn.setAttribute("aria-expanded", shouldOpen ? "true" : "false");
+  }
+  if (shouldOpen) {
+    document.body.classList.add("menu-locked");
+    document.documentElement.classList.add("menu-locked");
+  } else {
+    document.body.classList.remove("menu-locked");
+    document.documentElement.classList.remove("menu-locked");
+  }
+}
 
-// Dashboard mobile sidebar menu toggle
-document
-  .getElementById("dashMenuToggle")
-  ?.addEventListener("click", () => {
-    document.getElementById("sideLinks")?.classList.toggle("open");
-    document.getElementById("navLinks")?.classList.toggle("open");
-  });
+document.getElementById("menuToggle")?.addEventListener("click", (e) => {
+  e.stopPropagation();
+  toggleNavMenu();
+});
+
+// Dashboard mobile sidebar menu toggle fallback
+document.getElementById("dashMenuToggle")?.addEventListener("click", (e) => {
+  e.stopPropagation();
+  toggleNavMenu();
+});
+
+// Close mobile menu on Escape key
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    toggleNavMenu(false);
+  }
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener("click", (e) => {
+  const navLinks = document.getElementById("navLinks");
+  const menuBtn = document.getElementById("menuToggle");
+  if (navLinks && navLinks.classList.contains("open")) {
+    if (
+      !navLinks.contains(e.target) &&
+      e.target !== menuBtn &&
+      !menuBtn?.contains(e.target)
+    ) {
+      toggleNavMenu(false);
+    }
+  }
+});
+
+// Close mobile menu on resize past tablet breakpoint
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 1100) {
+    toggleNavMenu(false);
+  }
+});
 
 // Tab metadata for dynamic header updates
 const dashTabMeta = {
@@ -138,8 +186,12 @@ function switchDashTab(targetId) {
     }
   });
 
-  // Close mobile sidebar if open
-  document.getElementById("navLinks")?.classList.remove("open");
+  // Close mobile sidebar if open and restore scrolling
+  if (typeof toggleNavMenu === "function") {
+    toggleNavMenu(false);
+  } else {
+    document.getElementById("navLinks")?.classList.remove("open");
+  }
   document.getElementById("sideLinks")?.classList.remove("open");
 
   // Scroll to top of dash-main
