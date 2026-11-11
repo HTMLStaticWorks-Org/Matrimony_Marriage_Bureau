@@ -1342,24 +1342,29 @@ html[dir="rtl"] .pwd-toggle {
 }
 
 .sidebar-controls-card {
-  background: #fffdf7;
-  border: 1px solid #eadfca;
-  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
   padding: 10px 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
 }
 
 .sidebar-controls-card .icon-btn {
-  background: #ffffff;
-  border: 1px solid #e2d7c3;
-  color: #30251f;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #f8f1dc;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   transition: all 0.2s ease;
+}
+
+.sidebar-controls-card .icon-btn svg {
+  color: #f8f1dc;
+  stroke: #f8f1dc;
 }
 
 .sidebar-controls-card .theme-toggle {
@@ -1395,12 +1400,19 @@ html[dir="rtl"] .pwd-toggle {
   position: relative;
 }
 
+.sidebar-controls-card .notif-badge {
+  background: var(--red);
+  color: #ffffff;
+  border-color: #24191a;
+  box-shadow: 0 2px 8px rgba(181, 18, 43, 0.6);
+}
+
 .sidebar-controls-card .icon-btn:hover {
   background: var(--red);
   color: #ffffff;
   border-color: var(--red);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(181, 18, 43, 0.35);
+  box-shadow: 0 4px 14px rgba(181, 18, 43, 0.45);
 }
 
 .sidebar-controls-card .icon-btn:hover svg {
@@ -1408,16 +1420,15 @@ html[dir="rtl"] .pwd-toggle {
   stroke: #ffffff;
 }
 
-/* Dark mode styling for sidebar controls card */
+/* Dark mode subtle refinement */
 body.dark .sidebar-controls-card {
-  background: #2b1f20;
+  background: rgba(255, 255, 255, 0.04);
   border-color: rgba(255, 255, 255, 0.14);
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
 }
 
 body.dark .sidebar-controls-card .icon-btn {
-  background: #1c1415;
-  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(0, 0, 0, 0.45);
+  border-color: rgba(255, 255, 255, 0.18);
   color: #f8f1dc;
 }
 
@@ -1888,13 +1899,19 @@ html[dir="rtl"] .side-links > a {
 
   .dashboard {
     grid-template-columns: 1fr;
+    display: block;
   }
 
   .sidebar {
     position: sticky;
     top: 0;
-    z-index: 25;
+    left: auto;
+    right: auto;
+    width: 100%;
+    height: auto;
+    z-index: 50;
     padding: 14px 4%;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
   }
 
   .sidebar-sub {
@@ -1906,17 +1923,17 @@ html[dir="rtl"] .side-links > a {
     margin-top: 14px;
     padding-top: 12px;
     border-top: 1px solid #ffffff20;
-    grid-template-columns: 1fr;
+    flex-direction: column;
   }
 
   .side-links.open {
-    display: grid;
+    display: flex;
   }
 
-  .side-links .mobile-menu-actions {
-    border-top: 1px solid #ffffff20;
-    margin-top: 6px;
-    padding-top: 12px;
+  .sidebar-footer {
+    padding-top: 14px;
+    margin-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
   }
 
   .dash-actions {
@@ -1924,6 +1941,9 @@ html[dir="rtl"] .side-links > a {
   }
 
   .dash-main {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
     padding: 20px;
   }
 }
