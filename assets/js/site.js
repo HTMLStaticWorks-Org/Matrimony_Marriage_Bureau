@@ -31,6 +31,9 @@ function applyPrefs() {
   document
     .querySelectorAll("#dirToggle, .dir-toggle")
     .forEach((b) => (b.textContent = "RTL"));
+  if (typeof alignCardElements === "function") {
+    alignCardElements();
+  }
 }
 
 applyPrefs();
@@ -262,3 +265,113 @@ document.querySelectorAll(".social-icon").forEach((a) =>
     );
   }),
 );
+
+document.querySelectorAll(".notif-btn").forEach((btn) =>
+  btn.addEventListener("click", () => {
+    toast("Notifications: You have 3 new partner recommendations and 1 profile view.");
+  }),
+);
+
+// Dynamic card row element alignment across multi-card grids
+function alignCardElements() {
+  const grids = document.querySelectorAll(
+    ".grid-4, .grid-3, .grid-2, .grid-2-sm, .sm-grid-2, .grid-sm-2, .grid-2-mobile, .works-grid, .clarity-grid, .grid:not(.dash-grid):not(.dashboard):not(.search-panel)"
+  );
+
+  grids.forEach((grid) => {
+    if (grid.closest(".dashboard") || grid.closest(".search-panel")) return;
+
+    const cards = Array.from(grid.children).filter(
+      (el) => el.classList.contains("card") && !el.classList.contains("profile-card")
+    );
+    if (cards.length <= 1) return;
+
+    // Reset inline min-heights to measure natural unconstrained heights
+    cards.forEach((card) => {
+      const h3 = card.querySelector("h3");
+      if (h3) h3.style.minHeight = "";
+    });
+
+    // Group cards by their visual offsetTop (cards on the same row)
+    const rows = [];
+    cards.forEach((card) => {
+      const top = Math.round(card.offsetTop);
+      let row = rows.find((r) => Math.abs(r.top - top) <= 8);
+      if (!row) {
+        row = { top: top, cards: [] };
+        rows.push(row);
+      }
+      row.cards.push(card);
+    });
+
+    // For each visual row with multiple cards side-by-side, equalize h3 heights.
+    // If a lone card is on the last row (such as the centered 3rd card in a 2-col grid), match its h3 height too.
+    let prevRowMaxH3 = 0;
+    rows.forEach((row) => {
+      if (row.cards.length > 1) {
+        let maxH3 = 0;
+        row.cards.forEach((card) => {
+          const h3 = card.querySelector("h3");
+          if (h3) {
+            maxH3 = Math.max(maxH3, h3.offsetHeight);
+          }
+        });
+
+        if (maxH3 > 0) {
+          prevRowMaxH3 = maxH3;
+          row.cards.forEach((card) => {
+            const h3 = card.querySelector("h3");
+            if (h3) {
+              h3.style.minHeight = `${maxH3}px`;
+            }
+          });
+        }
+      } else if (row.cards.length === 1 && prevRowMaxH3 > 0 && cards.length > 1) {
+        const h3 = row.cards[0].querySelector("h3");
+        if (h3) {
+          h3.style.minHeight = `${prevRowMaxH3}px`;
+        }
+      }
+    });
+  });
+}
+
+// Dynamic hero button width alignment (equalizing secondary button width to primary)
+function alignHeroButtons() {
+  document.querySelectorAll(".hero-2-btns, .hero-btns").forEach((container) => {
+    const primary = container.querySelector(".btn-primary");
+    const secondary = container.querySelector(".btn-secondary");
+    if (primary && secondary) {
+      secondary.style.minWidth = "";
+      const pWidth = primary.getBoundingClientRect().width;
+      const sWidth = secondary.getBoundingClientRect().width;
+      const targetWidth = Math.max(pWidth, sWidth);
+      if (targetWidth > 0) {
+        secondary.style.minWidth = `${Math.round(targetWidth)}px`;
+      }
+    }
+  });
+}
+
+function runAlignments() {
+  alignCardElements();
+  alignHeroButtons();
+}
+
+// Attach alignCardElements & alignHeroButtons to lifecycle events
+window.addEventListener("DOMContentLoaded", runAlignments);
+window.addEventListener("load", runAlignments);
+if (document.fonts?.ready) {
+  document.fonts.ready.then(runAlignments);
+}
+
+let cardAlignTimer;
+window.addEventListener("resize", () => {
+  clearTimeout(cardAlignTimer);
+  cardAlignTimer = setTimeout(runAlignments, 80);
+});
+
+// Run once immediately if document is already parsed
+if (document.readyState !== "loading") {
+  runAlignments();
+}
